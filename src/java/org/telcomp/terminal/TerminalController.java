@@ -33,8 +33,6 @@ public class TerminalController {
             String content = "\"rm\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allows you to delete a service deployed, rm &lt;Service name&gt;";
             String showTerminal = setCSS(content, "brown");
             return showTerminal;
-        } else if (command.equals("date")) {
-            return new Date().toString();
         } else if (command.equals("rm")) {
             if (params.length > 0) {
                 boolean remove = cj.removeService(params[0]);
@@ -45,6 +43,8 @@ public class TerminalController {
             } else {
                 return params[0] + "not found.";
             }
+        } else if (command.equals("date")) {
+            return new Date().toString();
         } else {
             return command + " not found";
         }
