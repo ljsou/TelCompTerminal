@@ -23,26 +23,28 @@ public class TerminalController {
         cj = new ControlJslee();
     }
 
+    public String setCSS(String content, String color) {
+        String showTerminal = "<a style=\"color: " + color + "; font-weight: 600;\">" + content + "</a>";
+        return showTerminal;
+    }
+
     public String handleCommand(String command, String[] params) {
         if (command.equals("help")) {
-
             String content = "\"rm\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allows you to delete a service deployed, rm &lt;Service name&gt;";
-            String showTerminal = "<a style=\"color: brown; font-weight: 700;\">" + content + "</a>";
+            String showTerminal = setCSS(content, "brown");
             return showTerminal;
-           
         } else if (command.equals("date")) {
             return new Date().toString();
         } else if (command.equals("rm")) {
             if (params.length > 0) {
                 boolean remove = cj.removeService(params[0]);
-                String tResult = "<a style=\"color: chartreuse; font-weight: 700;\">" + params[0] + " deleted." + "</a>";
-                String fResult = "<a style=\"color: red; font-weight: 700;\">" + params[0] + " not found." + "</a>";
+                String tResult = setCSS(params[0] + " deleted.", "chartreuse");
+                String fResult = setCSS(params[0] + " not found.", "red");
                 String result = remove ? tResult : fResult;
                 return result;
             } else {
                 return params[0] + "not found.";
             }
-
         } else {
             return command + " not found";
         }
