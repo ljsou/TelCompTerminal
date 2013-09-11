@@ -1,7 +1,4 @@
-build.xml
 build/*
-catalog.xml
 dist/*
-lib/*
 nbproject/*
 
