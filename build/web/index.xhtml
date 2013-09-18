@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <title>TelComp Terminal</title>
+        <style>
+            .background-terminal {
+                background-color: #333;
+            }
+        </style>
+    </h:head>
+    <h:body style="background-color: #f5f5f5;">
+        <div style="font-size: 13px; margin: 7% 19%;"> 
+
+            <img src="resources/git.png" width="19%" height="19%" style="opacity: .3; float: right;"/>
+
+            <h:form prependId="false">  
+                <h1 style="font-family: sans-serif; float: left;">TelComp 2.0</h1>
+                <p:focus for="terminal" />  
+                <!--                <a style="color: chartreuse; font-weight: 700;">hola</a>-->
+                <p:terminal id="terminal" widgetVar="term" commandHandler="#{terminalController.handleCommand}"  
+                            welcomeMessage="Welcome to TelComp2.0 Terminal, how are you today?" width="800px" height="400px" prompt="telcomp $:" rendered="true" />
+
+                <p:commandButton type="button" value="Clear" icon="ui-icon-trash" onclick="term.clear();" style="margin-top:10px"/>  
+            </h:form>  
+        </div>
+    </h:body>
+</html>
+
