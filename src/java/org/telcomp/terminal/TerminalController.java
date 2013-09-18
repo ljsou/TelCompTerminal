@@ -5,7 +5,6 @@
 package org.telcomp.terminal;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import java.util.Date;
 import javax.faces.bean.SessionScoped;
 
@@ -27,15 +26,14 @@ public class TerminalController {
         String showTerminal = "<a style=\"color: " + color + "; font-weight: 600;\">" + content + "</a>";
         return showTerminal;
     }
-    
-    public String addSpace(int n){
+
+    public String addSpace(int n) {
         String space = "";
         for (int i = 0; i < n; i++) {
             space = space + "&nbsp;";
         }
         return space;
     }
-            
 
     public String handleCommand(String command, String[] params) {
         if (command.equals("help")) {
@@ -43,7 +41,7 @@ public class TerminalController {
             String show = "\"show\"" + addSpace(6) + "Shows you all the deployed services";
             String erase = "\"erase\"" + addSpace(5) + "Removes all deployed services, rm &lt;Service name&gt;";
             String find = "\"find\"" + addSpace(8) + "Finds a deployed service, find &lt;Service name&gt;";
-            String content = rm + "<br />" + erase + "<br />" + show + "<br />" + find ;
+            String content = rm + "<br />" + erase + "<br />" + show + "<br />" + find;
             String showTerminal = setCSS(content, "orange");
             return showTerminal;
         } else if (command.equals("rm")) {
